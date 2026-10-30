@@ -1,12 +1,14 @@
 #include "boardCommands.h"
 #include "main.h"
 #include "stm32g051xx.h"
+#include <stdint.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include "stm32g0xx_hal.h"
 #include "supportingFunctions.h"
+#include "ratatoskr.h"
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
@@ -26,38 +28,11 @@ int rxidx, rxcnt;
 uint8_t commandReceived;
 
 
-void fcn1(const char *params)
-{
-    strncpy(tx_buff, "fcn1", TX_BUFFER_SIZE);
-    txcnt = rxcnt;
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-}
-
-void fcn2(const char *params)
-{
-    int nextParam;
-    nextParam = findNextCommandParameter(params);
-    int num = atoi(params+nextParam);
-    //strncpy(tx_buff, "fcn1", TX_BUFFER_SIZE);
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "fcn2, %i\n", num);
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-}
-
 static const Command commands[] = {
-    { fcn1, "fn1" },
-    { fcn2, "fn2" },
+    { ping, "ping"},
     { readAdc, "readAdc"},
     { checkPower, "pwr"},
     { readSensors, "sns"},
-    { readSensorsRaw, "snsRaw"},
     /* ... */
 };
 
@@ -108,80 +83,72 @@ void USART_IRQ_Hnadler(void){
     USART1->ICR = -1; // Clear all interrupt flags, unsafe, but gets the job done
 }
 
-int findNextCommandParameter(const char *str){
-    // Assumes null termination, will work weird otherwise
-    char *separators = " \t,;";
-
-    // If the first character is a whitespace, the code must skip over to the first non-white space character
-    uint8_t startedOnWhitespace = 0;
-
-    // int lastSeparator = 0;
-    // Go through maximum command size of characters (but stop if 0 is reached)
-    for(int i=0; i<RX_BUFFER_SIZE; i++){
-        if (str[i] == 0){
-            return 0;
-        }
-        // if the current character is whitespace, return that index unless the code stareted on whitespace
-        for(int j=0; j<(sizeof(separators)/sizeof(separators[0])-1); j++){  //-1 in count calculation to ellimiante \0
-            if (str[i] == separators[j]){
-                // lastSeparator = i;
-                // break;
-                if (i==0){
-                    startedOnWhitespace = 1;    // Although it might be more efficient to do this check in advance, this way we avoid code duplication
-                }
-                if (startedOnWhitespace){
-                    break;
-                }
-                return i;
-            }
-        }
-        if (startedOnWhitespace && (i != 0)){
-            return i;
-        }
-        // return i;
-    }
-    return 0;
-}
+static uint32_t t1;
+static uint32_t t2;
 
 void processCommand(void){
-    // if (commandReceived){
-    //     // loopback
-    //     strncpy(tx_buff, rx_buff, rxcnt);
-    //     txcnt = rxcnt;
-    //     txidx = 0;
-    //     rxcnt = 0;
-    //     rxidx = 0;
-    //     commandReceived = 0;
-    //     USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    // }
-    int endOfCommand;
-    int comparison;
-    if (commandReceived){
-        for (int i = 0; i < command_count; i++) {
-            endOfCommand = findNextCommandParameter(rx_buff);
-            if (endOfCommand){
-                comparison = strncmp(commands[i].name, rx_buff, endOfCommand);
-            }
-            else{
-                comparison = strcmp(commands[i].name, rx_buff);
-            }
-            if (comparison == 0) {
-                commands[i].cmd(rx_buff + endOfCommand);
+
+
+    char *splitCmd[MAX_PARAMS] = {0};
+    char msg[RX_BUFFER_SIZE] = {0};
+    char ret[TX_BUFFER_SIZE] = {0};
+    uint16_t msgID;
+    char addr[] = "V1";
+
+    t1 = HAL_GetTick();
+
+    if(commandReceived){
+        if(!parseMSG(rx_buff, rxcnt, addr, &msgID, msg)){
+            rxcnt = 0;
+            rxidx = 0;
+            commandReceived = 0;
+            return;
+        }
+        int numOfParams = splitCommand(msg, MAX_PARAMS, splitCmd, RX_BUFFER_SIZE);
+        if(numOfParams == -1){
+            // TODO: handle no command error
+            rxcnt = 0;
+            rxidx = 0;
+            commandReceived = 0;
+            return;
+        }
+        for(int i = 0; i < command_count; i++){
+            if(strcmp(splitCmd[0], commands[i].name) == 0){
+                commands[i].cmd(splitCmd, numOfParams, ret);
+    t2 = HAL_GetTick();
+                char debug[TX_BUFFER_SIZE] = {0};
+                sprintf(debug, "%s t=%d",ret, t2-t1);
+                txcnt = composeMSG(tx_buff, TX_BUFFER_SIZE, msgID, debug);
+                USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
+                txidx = 0;
+                rxcnt = 0;
+                rxidx = 0;
+                commandReceived = 0;
                 return;
             }
         }
-        // If no command match was found, do at least clear the buffer
+
+        
         rxcnt = 0;
         rxidx = 0;
         commandReceived = 0;
     }
+
 }
 
-void readAdc(const char *params){
-    int nextParam;
-    nextParam = findNextCommandParameter(params);
-    //int num = atoi(params+nextParam);
-    char channel = params[nextParam];
+void readAdc(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
+    if(countOfParams != 1){
+        snprintf(ret, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 1, got %d)", countOfParams);
+        return;
+    }
+    
+    if(strlen(splitCmd[1]) != 1){
+        snprintf(ret, TX_BUFFER_SIZE, "E: Parameter 1 must only be one character (required 1, got %d)", strlen(splitCmd[1]));
+        return;
+    }
+
+    char channel = splitCmd[1][0];
+
     uint8_t channelIdx = 0;
 
     // Make sure that channel is valid
@@ -202,7 +169,7 @@ void readAdc(const char *params){
         channelIdx = 10;
     }
     else{
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Chennel should be U, I, P, or T (is %c)\n", channel);
+        snprintf(ret, TX_BUFFER_SIZE, "Chennel should be U, I, P, or T (is %c)", channel);
     }
     
     if (channelIdx) {
@@ -216,7 +183,7 @@ void readAdc(const char *params){
         ADCmsmnt = HAL_ADC_GetValue(&hadc1);
         // This error handling if iffy at best
         if (status){
-            txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Reading ADC failed with error 0x%x\n", status);
+            snprintf(ret, TX_BUFFER_SIZE, "Reading ADC failed with error 0x%x", status);
         }
         
         else{
@@ -224,16 +191,16 @@ void readAdc(const char *params){
             // %f formatting can be enabled by adding "set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -u _printf_float")" to "cmake\gcc-arm-none-eabi.cmake", but it consumes 12 kB of FLASH
             if (channel == 'u'){
                 // TODO add calibration and calculations
-                txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Vsns = %i.%0*i V\n", (int)Vsns, 2, (int)getDecimals(Vsns, 2));
+                snprintf(ret, TX_BUFFER_SIZE, "Vsns = %i.%0*i V", (int)Vsns, 2, (int)getDecimals(Vsns, 2));
             }
             else if (channel == 'i'){
                 // TODO add calibration and calculations
-                txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Isns = %i.%0*i V\n", (int)Vsns, 2, (int)getDecimals(Vsns, 2));
+                snprintf(ret, TX_BUFFER_SIZE, "Isns = %i.%0*i V", (int)Vsns, 2, (int)getDecimals(Vsns, 2));
             }
             if (channel == 'p'){
                 // TODO add calibration and calculations
                 Vsns = Vsns*11; // Vpwr passes through 100/10 resistor divider, this calculation ondoes that.
-                txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Main board supply is at %i.%0*i V\n", (int)Vsns, 2, (int)getDecimals(Vsns, 2));
+                snprintf(ret, TX_BUFFER_SIZE, "Main board supply is at %i.%0*i V", (int)Vsns, 2, (int)getDecimals(Vsns, 2));
             }
             else if (channel == 't'){
                 float temperature;
@@ -241,19 +208,13 @@ void readAdc(const char *params){
                 (TS_CAL2_TEMP - TS_CAL1_TEMP) / 
                 ((*TS_CAL2_ADDR - *TS_CAL1_ADDR)*3./4096.) + 
                 TS_CAL1_TEMP;
-                txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "MCU core temperature is %i.%0*i C\n", (int)temperature, 2, (int)getDecimals(temperature, 2));
+                snprintf(ret, TX_BUFFER_SIZE, "MCU core temperature is %i.%0*i C", (int)temperature, 2, (int)getDecimals(temperature, 2));
             }
         }
     }
-
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
 }
 
-void checkPower(const char *params){
+void checkPower(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
     HAL_StatusTypeDef status = 0;
     uint16_t ADCmsmnt;
     float Vsns1, Vsns2;
@@ -271,19 +232,13 @@ void checkPower(const char *params){
     Vsns2 = ADCmsmnt*(2.5/(1<<16))*11;
     // This error handling if iffy at best
     if (status){
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Reading ADC failed with error 0x%x\n", status);
+        snprintf(ret, TX_BUFFER_SIZE, "Reading ADC failed with error 0x%x", status);
     }
     
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "V1 = %i.%0*i V, V2 = %i.%0*i V\n", (int)Vsns1, 2, (int)getDecimals(Vsns1, 2), (int)Vsns2, 2, (int)getDecimals(Vsns2, 2));
-    
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
+    snprintf(ret, TX_BUFFER_SIZE, "V1 = %i.%0*i V, V2 = %i.%0*i V", (int)Vsns1, 2, (int)getDecimals(Vsns1, 2), (int)Vsns2, 2, (int)getDecimals(Vsns2, 2));
 }
 
-void readSensors(const char *params){
+void readSensors(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
     HAL_StatusTypeDef status = 0;
     uint16_t ADCmsmnt;
     float Vsns1, Vsns2, id1, id2;
@@ -331,51 +286,41 @@ void readSensors(const char *params){
 
     // This error handling if iffy at best
     if (status){
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Reading ADC failed with error 0x%x\n", status);
+        snprintf(ret, TX_BUFFER_SIZE, "Reading ADC failed with error 0x%x", status);
     }
     else{
-        // txcnt = snprintf(tx_buff, TX_BUFFER_SIZE,  "id1 = %i.%0*i, V, V1 = %i.%0*i V, id2 = %i.%0*i, V2 = %i.%0*i V\n", 
+        // txcnt = snprintf(tx_buff, TX_BUFFER_SIZE,  "id1 = %i.%0*i, V, V1 = %i.%0*i V, id2 = %i.%0*i, V2 = %i.%0*i V", 
         //                                             (int)id1, 2, (int)getDecimals(id1, 2),
         //                                             (int)Vsns1, 2, (int)getDecimals(Vsns1, 2),
         //                                             (int)id2, 2, (int)getDecimals(id2, 2),
         //                                             (int)Vsns2, 2, (int)getDecimals(Vsns2, 2));
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE,  "id1 = %i.%0*ik, V, V1 = %i.%0*i V, id2 = %i.%0*ik, V2 = %i.%0*i V\n", 
+        snprintf(ret, TX_BUFFER_SIZE,  "id1=%i.%0*i;V1=%i.%0*i;id2=%i.%0*i;V2=%i.%0*i", 
                                                     (int)id1, 2, (int)getDecimals(id1, 2),
                                                     (int)Vsns1, 2, (int)getDecimals(Vsns1, 2),
                                                     (int)id2, 2, (int)getDecimals(id2, 2),
                                                     (int)Vsns2, 2, (int)getDecimals(Vsns2, 2));
     }
-    
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
 }
 
-void readSensorsRaw(const char *params){
-    HAL_StatusTypeDef status = 0;
-    uint16_t ADCmsmnt;
-    float Vsns1, Vsns2, id1, id2;
+// Not needed
+// void readSensorsRaw(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
+//     HAL_StatusTypeDef status = 0;
+//     uint16_t ADCmsmnt;
+//     float Vsns1, Vsns2, id1, id2;
 
-    uint16_t readings[4];
-    readPirani(readings);
-    // No error handling...
+//     uint16_t readings[4];
+//     readPirani(readings);
+//     // No error handling...
 
 
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE,  "%i, %i, %i, %i\n", 
-                                                readings[0],
-                                                readings[1],
-                                                readings[2],
-                                                readings[3]);
+//     snprintf(ret, TX_BUFFER_SIZE,  "%i;%i;%i;%i", 
+//                                                 readings[0],
+//                                                 readings[1],
+//                                                 readings[2],
+//                                                 readings[3]);
 
-    
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
-}
+
+// }
 
 int readPirani(uint16_t readings[4]){
     HAL_StatusTypeDef status = 0;
@@ -383,7 +328,7 @@ int readPirani(uint16_t readings[4]){
     uint8_t chIdx[] = {6,2,7,3};    // Vsns1, Vsns2, id1, id2
 
     for (int i=0; i<4; i++){
-        HAL_Delay(100);
+        HAL_Delay(5);
         ADC1->CHSELR = chIdx[i] << ADC_CHSELR_SQ1_Pos;
         status |= HAL_ADC_Start(&hadc1);
         status |= HAL_ADC_PollForConversion(&hadc1, 10);

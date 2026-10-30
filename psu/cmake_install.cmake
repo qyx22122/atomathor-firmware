@@ -1,4 +1,4 @@
-# Install script for directory: /home/tibor/Git/AtomaThor-PSUController
+# Install script for directory: /home/tibor/Programming/atomathor-firmware/psu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,18 +39,23 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/objdump")
+  set(CMAKE_OBJDUMP "/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/cmake_install.cmake")
+  include("/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/tibor/Programming/atomathor-firmware/psu/ratatoskr/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/tibor/Git/AtomaThor-PSUController/install_local_manifest.txt"
+  file(WRITE "/home/tibor/Programming/atomathor-firmware/psu/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -66,6 +71,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/tibor/Git/AtomaThor-PSUController/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/tibor/Programming/atomathor-firmware/psu/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

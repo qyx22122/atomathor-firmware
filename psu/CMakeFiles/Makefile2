@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake
+CMAKE_COMMAND = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake -E rm -f
+RM = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_SOURCE_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_BINARY_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -65,20 +65,24 @@ CMAKE_BINARY_DIR = /home/tibor/Git/AtomaThor-PSUController
 # The main recursive "all" target.
 all: CMakeFiles/PSUController.dir/all
 all: cmake/stm32cubemx/all
+all: ratatoskr/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/PSUController.dir/codegen
 codegen: cmake/stm32cubemx/codegen
+codegen: ratatoskr/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: cmake/stm32cubemx/preinstall
+preinstall: ratatoskr/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/PSUController.dir/clean
 clean: cmake/stm32cubemx/clean
+clean: ratatoskr/clean
 .PHONY : clean
 
 #=============================================================================
@@ -101,20 +105,40 @@ cmake/stm32cubemx/clean: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean
 .PHONY : cmake/stm32cubemx/clean
 
 #=============================================================================
+# Directory level rules for directory ratatoskr
+
+# Recursive "all" directory target.
+ratatoskr/all: ratatoskr/CMakeFiles/ratatoskr.dir/all
+.PHONY : ratatoskr/all
+
+# Recursive "codegen" directory target.
+ratatoskr/codegen: ratatoskr/CMakeFiles/ratatoskr.dir/codegen
+.PHONY : ratatoskr/codegen
+
+# Recursive "preinstall" directory target.
+ratatoskr/preinstall:
+.PHONY : ratatoskr/preinstall
+
+# Recursive "clean" directory target.
+ratatoskr/clean: ratatoskr/CMakeFiles/ratatoskr.dir/clean
+.PHONY : ratatoskr/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/PSUController.dir
 
 # All Build rule for target.
 CMakeFiles/PSUController.dir/all: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all
+CMakeFiles/PSUController.dir/all: ratatoskr/CMakeFiles/ratatoskr.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PSUController.dir/build.make CMakeFiles/PSUController.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PSUController.dir/build.make CMakeFiles/PSUController.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target PSUController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target PSUController"
 .PHONY : CMakeFiles/PSUController.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PSUController.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PSUController.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 0
 .PHONY : CMakeFiles/PSUController.dir/rule
 
 # Convenience name for target.
@@ -124,7 +148,7 @@ PSUController: CMakeFiles/PSUController.dir/rule
 # codegen rule for target.
 CMakeFiles/PSUController.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PSUController.dir/build.make CMakeFiles/PSUController.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target PSUController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target PSUController"
 .PHONY : CMakeFiles/PSUController.dir/codegen
 
 # clean rule for target.
@@ -139,14 +163,14 @@ CMakeFiles/PSUController.dir/clean:
 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all:
 	$(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/depend
 	$(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40 "Built target STM32_Drivers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40 "Built target STM32_Drivers"
 .PHONY : cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all
 
 # Build rule for subdir invocation for target.
 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 30
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 0
 .PHONY : cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule
 
 # Convenience name for target.
@@ -156,13 +180,45 @@ STM32_Drivers: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule
 # codegen rule for target.
 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40 "Finished codegen for target STM32_Drivers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40 "Finished codegen for target STM32_Drivers"
 .PHONY : cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/codegen
 
 # clean rule for target.
 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean:
 	$(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean
 .PHONY : cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean
+
+#=============================================================================
+# Target rules for target ratatoskr/CMakeFiles/ratatoskr.dir
+
+# All Build rule for target.
+ratatoskr/CMakeFiles/ratatoskr.dir/all:
+	$(MAKE) $(MAKESILENT) -f ratatoskr/CMakeFiles/ratatoskr.dir/build.make ratatoskr/CMakeFiles/ratatoskr.dir/depend
+	$(MAKE) $(MAKESILENT) -f ratatoskr/CMakeFiles/ratatoskr.dir/build.make ratatoskr/CMakeFiles/ratatoskr.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=41,42,43 "Built target ratatoskr"
+.PHONY : ratatoskr/CMakeFiles/ratatoskr.dir/all
+
+# Build rule for subdir invocation for target.
+ratatoskr/CMakeFiles/ratatoskr.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ratatoskr/CMakeFiles/ratatoskr.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 0
+.PHONY : ratatoskr/CMakeFiles/ratatoskr.dir/rule
+
+# Convenience name for target.
+ratatoskr: ratatoskr/CMakeFiles/ratatoskr.dir/rule
+.PHONY : ratatoskr
+
+# codegen rule for target.
+ratatoskr/CMakeFiles/ratatoskr.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f ratatoskr/CMakeFiles/ratatoskr.dir/build.make ratatoskr/CMakeFiles/ratatoskr.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=41,42,43 "Finished codegen for target ratatoskr"
+.PHONY : ratatoskr/CMakeFiles/ratatoskr.dir/codegen
+
+# clean rule for target.
+ratatoskr/CMakeFiles/ratatoskr.dir/clean:
+	$(MAKE) $(MAKESILENT) -f ratatoskr/CMakeFiles/ratatoskr.dir/build.make ratatoskr/CMakeFiles/ratatoskr.dir/clean
+.PHONY : ratatoskr/CMakeFiles/ratatoskr.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

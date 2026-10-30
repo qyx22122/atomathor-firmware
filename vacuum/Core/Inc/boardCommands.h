@@ -5,24 +5,19 @@
 
 #define TX_BUFFER_SIZE 64
 #define RX_BUFFER_SIZE 64
+#define MAX_PARAMS 8
 
-typedef void (*CommandFunc)(const char *params);
 
-typedef struct {
-    CommandFunc cmd;
-    const char *name;
-} Command;
 
 void USART_IRQ_Hnadler(void);
 
-int findNextCommandParameter(const char *str);
 
 void processCommand(void);
 
-void readAdc(const char *params);
-void checkPower(const char *params);
-void readSensors(const char *params);
-void readSensorsRaw(const char *params);
+void readAdc(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]);
+void checkPower(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]);
+void readSensors(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]);
+//void readSensorsRaw(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]); not needed
 
 int readPirani(uint16_t readings[4]);
 

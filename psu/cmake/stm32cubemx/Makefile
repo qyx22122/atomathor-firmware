@@ -48,27 +48,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake
+CMAKE_COMMAND = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake -E rm -f
+RM = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_SOURCE_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_BINARY_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
+	/home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/tibor/Git/AtomaThor-PSUController && $(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles /home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx//CMakeFiles/progress.marks
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles 0
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles /home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx//CMakeFiles/progress.marks
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/clean
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/preinstall
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/preinstall
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule
 .PHONY : cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ STM32_Drivers: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/rule
 
 # fast build rule for target.
 STM32_Drivers/fast:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build
 .PHONY : STM32_Drivers/fast
 
 __/__/Core/Src/system_stm32g0xx.o: __/__/Core/Src/system_stm32g0xx.c.o
@@ -135,7 +135,7 @@ __/__/Core/Src/system_stm32g0xx.o: __/__/Core/Src/system_stm32g0xx.c.o
 
 # target to build an object file
 __/__/Core/Src/system_stm32g0xx.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.o
 .PHONY : __/__/Core/Src/system_stm32g0xx.c.o
 
 __/__/Core/Src/system_stm32g0xx.i: __/__/Core/Src/system_stm32g0xx.c.i
@@ -143,7 +143,7 @@ __/__/Core/Src/system_stm32g0xx.i: __/__/Core/Src/system_stm32g0xx.c.i
 
 # target to preprocess a source file
 __/__/Core/Src/system_stm32g0xx.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.i
 .PHONY : __/__/Core/Src/system_stm32g0xx.c.i
 
 __/__/Core/Src/system_stm32g0xx.s: __/__/Core/Src/system_stm32g0xx.c.s
@@ -151,7 +151,7 @@ __/__/Core/Src/system_stm32g0xx.s: __/__/Core/Src/system_stm32g0xx.c.s
 
 # target to generate assembly for a file
 __/__/Core/Src/system_stm32g0xx.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.s
 .PHONY : __/__/Core/Src/system_stm32g0xx.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o
@@ -159,7 +159,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.o: __/__/Drivers/STM32G0xx_
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.i
@@ -167,7 +167,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.i: __/__/Drivers/STM32G0xx_
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.s
@@ -175,7 +175,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.s: __/__/Drivers/STM32G0xx_
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o
@@ -183,7 +183,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.i
@@ -191,7 +191,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.s
@@ -199,7 +199,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o
@@ -207,7 +207,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.i
@@ -215,7 +215,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.s
@@ -223,7 +223,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o
@@ -231,7 +231,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.i
@@ -239,7 +239,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.s
@@ -247,7 +247,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o
@@ -255,7 +255,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.i
@@ -263,7 +263,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.s
@@ -271,7 +271,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o
@@ -279,7 +279,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.i
@@ -287,7 +287,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.s
@@ -295,7 +295,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o
@@ -303,7 +303,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.i
@@ -311,7 +311,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.s
@@ -319,7 +319,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o
@@ -327,7 +327,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.i
@@ -335,7 +335,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.s
@@ -343,7 +343,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o
@@ -351,7 +351,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.o: __/__/Drivers/STM32
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.i
@@ -359,7 +359,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.i: __/__/Drivers/STM32
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.s
@@ -367,7 +367,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.s: __/__/Drivers/STM32
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o
@@ -375,7 +375,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.o: __/__/Drivers/STM3
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.i
@@ -383,7 +383,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.i: __/__/Drivers/STM3
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.s
@@ -391,7 +391,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.s: __/__/Drivers/STM3
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o
@@ -399,7 +399,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.o: __/__/Drivers/S
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.i
@@ -407,7 +407,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.i: __/__/Drivers/S
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.s
@@ -415,7 +415,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.s: __/__/Drivers/S
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o
@@ -423,7 +423,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.o: __/__/Drivers/STM32
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.i
@@ -431,7 +431,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.i: __/__/Drivers/STM32
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.s
@@ -439,7 +439,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.s: __/__/Drivers/STM32
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o
@@ -447,7 +447,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.i
@@ -455,7 +455,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.s
@@ -463,7 +463,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o
@@ -471,7 +471,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.i
@@ -479,7 +479,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.s
@@ -487,7 +487,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o
@@ -495,7 +495,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.o: __/__/Drivers/STM3
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.i
@@ -503,7 +503,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.i: __/__/Drivers/STM3
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.s
@@ -511,7 +511,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.s: __/__/Drivers/STM3
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o
@@ -519,7 +519,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.i
@@ -527,7 +527,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.s
@@ -535,7 +535,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o
@@ -543,7 +543,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.i
@@ -551,7 +551,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.s
@@ -559,7 +559,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o
@@ -567,7 +567,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.i
@@ -575,7 +575,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.s
@@ -583,7 +583,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o
@@ -591,7 +591,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.i
@@ -599,7 +599,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.s
@@ -607,7 +607,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o
@@ -615,7 +615,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.i
@@ -623,7 +623,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.s
@@ -631,7 +631,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o
@@ -639,7 +639,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.o: __/__/Drivers/STM
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.i
@@ -647,7 +647,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.i: __/__/Drivers/STM
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.s
@@ -655,7 +655,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.s: __/__/Drivers/STM
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o
@@ -663,7 +663,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.o: __/__/Drivers/STM32
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.i
@@ -671,7 +671,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.i: __/__/Drivers/STM32
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.s
@@ -679,7 +679,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.s: __/__/Drivers/STM32
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o
@@ -687,7 +687,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.o: __/__/Drivers/ST
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.i
@@ -695,7 +695,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.i: __/__/Drivers/ST
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.s
@@ -703,7 +703,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.s: __/__/Drivers/ST
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o
@@ -711,7 +711,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.o: __/__/Drivers/STM32G0
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.i
@@ -719,7 +719,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.i: __/__/Drivers/STM32G0
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.s
@@ -727,7 +727,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.s: __/__/Drivers/STM32G0
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o
@@ -735,7 +735,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.o: __/__/Drivers/STM32G0
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.i
@@ -743,7 +743,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.i: __/__/Drivers/STM32G0
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.s
@@ -751,7 +751,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.s: __/__/Drivers/STM32G0
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o
@@ -759,7 +759,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.i
@@ -767,7 +767,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.s
@@ -775,7 +775,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o
@@ -783,7 +783,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.o: __/__/Drivers/STM32G
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.i
@@ -791,7 +791,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.i: __/__/Drivers/STM32G
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.s
@@ -799,7 +799,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.s: __/__/Drivers/STM32G
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o
@@ -807,7 +807,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.o: __/__/Drivers/STM32G0
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.i
@@ -815,7 +815,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.i: __/__/Drivers/STM32G0
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.s
@@ -823,7 +823,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.s: __/__/Drivers/STM32G0
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.s
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.o: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o
@@ -831,7 +831,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.o: __/__/Drivers/STM32
 
 # target to build an object file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.i: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.i
@@ -839,7 +839,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.i: __/__/Drivers/STM32
 
 # target to preprocess a source file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.i:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.i
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.i
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.i
 
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.s: __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.s
@@ -847,7 +847,7 @@ __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.s: __/__/Drivers/STM32
 
 # target to generate assembly for a file
 __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.s:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.s
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.s
 .PHONY : __/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.s
 
 # Help Target
@@ -960,6 +960,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

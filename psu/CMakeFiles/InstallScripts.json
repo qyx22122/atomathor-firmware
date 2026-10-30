@@ -1,8 +1,9 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/tibor/Git/AtomaThor-PSUController/cmake_install.cmake",
-		"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/cmake_install.cmake"
+		"/home/tibor/Programming/atomathor-firmware/psu/cmake_install.cmake",
+		"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/cmake_install.cmake",
+		"/home/tibor/Programming/atomathor-firmware/psu/ratatoskr/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

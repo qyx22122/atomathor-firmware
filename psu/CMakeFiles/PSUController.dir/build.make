@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake
+CMAKE_COMMAND = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake -E rm -f
+RM = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_SOURCE_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_BINARY_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PSUController.dir/depend.make
@@ -75,127 +75,127 @@ CMakeFiles/PSUController.dir/codegen:
 CMakeFiles/PSUController.dir/Core/Src/main.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/main.c.o: Core/Src/main.c
 CMakeFiles/PSUController.dir/Core/Src/main.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/PSUController.dir/Core/Src/main.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/main.c.o -MF CMakeFiles/PSUController.dir/Core/Src/main.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/main.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/PSUController.dir/Core/Src/main.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/main.c.o -MF CMakeFiles/PSUController.dir/Core/Src/main.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/main.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/main.c
 
 CMakeFiles/PSUController.dir/Core/Src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/main.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/main.c > CMakeFiles/PSUController.dir/Core/Src/main.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/main.c > CMakeFiles/PSUController.dir/Core/Src/main.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/main.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/main.c -o CMakeFiles/PSUController.dir/Core/Src/main.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/main.c -o CMakeFiles/PSUController.dir/Core/Src/main.c.s
 
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o: Core/Src/stm32g0xx_it.c
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o -MF CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/stm32g0xx_it.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o -MF CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/stm32g0xx_it.c
 
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/stm32g0xx_it.c > CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/stm32g0xx_it.c > CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/stm32g0xx_it.c -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/stm32g0xx_it.c -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.s
 
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o: Core/Src/stm32g0xx_hal_msp.c
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o -MF CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/stm32g0xx_hal_msp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o -MF CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/stm32g0xx_hal_msp.c
 
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/stm32g0xx_hal_msp.c > CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/stm32g0xx_hal_msp.c > CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/stm32g0xx_hal_msp.c -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/stm32g0xx_hal_msp.c -o CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_hal_msp.c.s
 
 CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o: Core/Src/sysmem.c
 CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o -MF CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/sysmem.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o -MF CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/sysmem.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/sysmem.c
 
 CMakeFiles/PSUController.dir/Core/Src/sysmem.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/sysmem.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/sysmem.c > CMakeFiles/PSUController.dir/Core/Src/sysmem.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/sysmem.c > CMakeFiles/PSUController.dir/Core/Src/sysmem.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/sysmem.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/sysmem.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/sysmem.c -o CMakeFiles/PSUController.dir/Core/Src/sysmem.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/sysmem.c -o CMakeFiles/PSUController.dir/Core/Src/sysmem.c.s
 
 CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o: Core/Src/syscalls.c
 CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o -MF CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/syscalls.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o -MF CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/syscalls.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/syscalls.c
 
 CMakeFiles/PSUController.dir/Core/Src/syscalls.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/syscalls.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/syscalls.c > CMakeFiles/PSUController.dir/Core/Src/syscalls.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/syscalls.c > CMakeFiles/PSUController.dir/Core/Src/syscalls.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/syscalls.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/syscalls.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/syscalls.c -o CMakeFiles/PSUController.dir/Core/Src/syscalls.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/syscalls.c -o CMakeFiles/PSUController.dir/Core/Src/syscalls.c.s
 
 CMakeFiles/PSUController.dir/startup_stm32g051xx.s.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/startup_stm32g051xx.s.o: startup_stm32g051xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building ASM object CMakeFiles/PSUController.dir/startup_stm32g051xx.s.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/PSUController.dir/startup_stm32g051xx.s.o -c /home/tibor/Git/AtomaThor-PSUController/startup_stm32g051xx.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building ASM object CMakeFiles/PSUController.dir/startup_stm32g051xx.s.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/PSUController.dir/startup_stm32g051xx.s.o -c /home/tibor/Programming/atomathor-firmware/psu/startup_stm32g051xx.s
 
 CMakeFiles/PSUController.dir/startup_stm32g051xx.s.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/PSUController.dir/startup_stm32g051xx.s.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/startup_stm32g051xx.s > CMakeFiles/PSUController.dir/startup_stm32g051xx.s.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/startup_stm32g051xx.s > CMakeFiles/PSUController.dir/startup_stm32g051xx.s.i
 
 CMakeFiles/PSUController.dir/startup_stm32g051xx.s.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/PSUController.dir/startup_stm32g051xx.s.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/startup_stm32g051xx.s -o CMakeFiles/PSUController.dir/startup_stm32g051xx.s.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/startup_stm32g051xx.s -o CMakeFiles/PSUController.dir/startup_stm32g051xx.s.s
 
 CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o: Core/Src/eeprom.c
 CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o -MF CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/eeprom.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o -MF CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/eeprom.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/eeprom.c
 
 CMakeFiles/PSUController.dir/Core/Src/eeprom.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/eeprom.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/eeprom.c > CMakeFiles/PSUController.dir/Core/Src/eeprom.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/eeprom.c > CMakeFiles/PSUController.dir/Core/Src/eeprom.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/eeprom.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/eeprom.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/eeprom.c -o CMakeFiles/PSUController.dir/Core/Src/eeprom.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/eeprom.c -o CMakeFiles/PSUController.dir/Core/Src/eeprom.c.s
 
 CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o: Core/Src/supportingFunctions.c
 CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o -MF CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/supportingFunctions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o -MF CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/supportingFunctions.c
 
 CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/supportingFunctions.c > CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/supportingFunctions.c > CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/supportingFunctions.c -o CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/supportingFunctions.c -o CMakeFiles/PSUController.dir/Core/Src/supportingFunctions.c.s
 
 CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o: CMakeFiles/PSUController.dir/flags.make
 CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o: Core/Src/boardCommands.c
 CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o: CMakeFiles/PSUController.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o -MF CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o -c /home/tibor/Git/AtomaThor-PSUController/Core/Src/boardCommands.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o"
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o -MF CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o.d -o CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.o -c /home/tibor/Programming/atomathor-firmware/psu/Core/Src/boardCommands.c
 
 CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.i"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Git/AtomaThor-PSUController/Core/Src/boardCommands.c > CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.i
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tibor/Programming/atomathor-firmware/psu/Core/Src/boardCommands.c > CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.i
 
 CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.s"
-	/nix/store/3d1c302vw7kc8a5vknhmn34c0pd7zm6m-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Git/AtomaThor-PSUController/Core/Src/boardCommands.c -o CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.s
+	/nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tibor/Programming/atomathor-firmware/psu/Core/Src/boardCommands.c -o CMakeFiles/PSUController.dir/Core/Src/boardCommands.c.s
 
 # Object files for target PSUController
 PSUController_OBJECTS = \
@@ -211,36 +211,36 @@ PSUController_OBJECTS = \
 
 # External object files for target PSUController
 PSUController_EXTERNAL_OBJECTS = \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o" \
-"/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o"
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g0xx.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_gpio.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_exti.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_adc_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_adc.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_utils.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_crc.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dac_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2c_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_lptim.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c.o" \
+"/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o"
 
 PSUController: CMakeFiles/PSUController.dir/Core/Src/main.c.o
 PSUController: CMakeFiles/PSUController.dir/Core/Src/stm32g0xx_it.c.o
@@ -283,8 +283,9 @@ PSUController: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM3
 PSUController: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c.o
 PSUController: CMakeFiles/PSUController.dir/build.make
 PSUController: CMakeFiles/PSUController.dir/compiler_depend.ts
+PSUController: ratatoskr/libratatoskr.a
 PSUController: CMakeFiles/PSUController.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/tibor/Git/AtomaThor-PSUController/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable PSUController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable PSUController"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PSUController.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -296,6 +297,6 @@ CMakeFiles/PSUController.dir/clean:
 .PHONY : CMakeFiles/PSUController.dir/clean
 
 CMakeFiles/PSUController.dir/depend:
-	cd /home/tibor/Git/AtomaThor-PSUController && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tibor/Git/AtomaThor-PSUController /home/tibor/Git/AtomaThor-PSUController /home/tibor/Git/AtomaThor-PSUController /home/tibor/Git/AtomaThor-PSUController /home/tibor/Git/AtomaThor-PSUController/CMakeFiles/PSUController.dir/DependInfo.cmake "--color=$(COLOR)" PSUController
+	cd /home/tibor/Programming/atomathor-firmware/psu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tibor/Programming/atomathor-firmware/psu /home/tibor/Programming/atomathor-firmware/psu /home/tibor/Programming/atomathor-firmware/psu /home/tibor/Programming/atomathor-firmware/psu /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles/PSUController.dir/DependInfo.cmake "--color=$(COLOR)" PSUController
 .PHONY : CMakeFiles/PSUController.dir/depend
 

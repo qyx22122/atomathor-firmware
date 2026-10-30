@@ -48,27 +48,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake
+CMAKE_COMMAND = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake
 
 # The command to remove a file.
-RM = /nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake -E rm -f
+RM = /home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_SOURCE_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tibor/Git/AtomaThor-PSUController
+CMAKE_BINARY_DIR = /home/tibor/Programming/atomathor-firmware/psu
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
+	/home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/nix/store/s35s3anz14hil6dk30m9ahax5447ap9r-cmake-4.3.4/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/tibor/.var/app/com.visualstudio.code/data/stm32cube/bundles/cmake/4.3.1+st.1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles /home/tibor/Git/AtomaThor-PSUController//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles /home/tibor/Programming/atomathor-firmware/psu//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Git/AtomaThor-PSUController/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tibor/Programming/atomathor-firmware/psu/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -141,6 +141,19 @@ STM32_Drivers: cmake_check_build_system
 STM32_Drivers/fast:
 	$(MAKE) $(MAKESILENT) -f cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build.make cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/build
 .PHONY : STM32_Drivers/fast
+
+#=============================================================================
+# Target rules for targets named ratatoskr
+
+# Build rule for target.
+ratatoskr: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ratatoskr
+.PHONY : ratatoskr
+
+# fast build rule for target.
+ratatoskr/fast:
+	$(MAKE) $(MAKESILENT) -f ratatoskr/CMakeFiles/ratatoskr.dir/build.make ratatoskr/CMakeFiles/ratatoskr.dir/build
+.PHONY : ratatoskr/fast
 
 Core/Src/boardCommands.o: Core/Src/boardCommands.c.o
 .PHONY : Core/Src/boardCommands.o
@@ -352,6 +365,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... PSUController"
 	@echo "... STM32_Drivers"
+	@echo "... ratatoskr"
 	@echo "... Core/Src/boardCommands.o"
 	@echo "... Core/Src/boardCommands.i"
 	@echo "... Core/Src/boardCommands.s"

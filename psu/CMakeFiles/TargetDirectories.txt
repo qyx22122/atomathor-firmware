@@ -1,6 +1,9 @@
-/home/tibor/Git/AtomaThor-PSUController/CMakeFiles/PSUController.dir
-/home/tibor/Git/AtomaThor-PSUController/CMakeFiles/edit_cache.dir
-/home/tibor/Git/AtomaThor-PSUController/CMakeFiles/rebuild_cache.dir
-/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
-/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
-/home/tibor/Git/AtomaThor-PSUController/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
+/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles/PSUController.dir
+/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles/edit_cache.dir
+/home/tibor/Programming/atomathor-firmware/psu/CMakeFiles/rebuild_cache.dir
+/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
+/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+/home/tibor/Programming/atomathor-firmware/psu/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
+/home/tibor/Programming/atomathor-firmware/psu/ratatoskr/CMakeFiles/ratatoskr.dir
+/home/tibor/Programming/atomathor-firmware/psu/ratatoskr/CMakeFiles/edit_cache.dir
+/home/tibor/Programming/atomathor-firmware/psu/ratatoskr/CMakeFiles/rebuild_cache.dir

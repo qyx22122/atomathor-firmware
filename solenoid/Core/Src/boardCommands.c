@@ -9,6 +9,7 @@
 #include <math.h>
 #include <sys/_types.h>
 #include "supportingFunctions.h"
+#include "ratatoskr.h"
 
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
@@ -29,37 +30,7 @@ int rxidx, rxcnt;
 uint8_t commandReceived;
 
 
-void fcn1(char *splitCmd[MAX_PARAMS], int countOfParams)
-{
-    strncpy(tx_buff, "fcn1\n", TX_BUFFER_SIZE);
-    txcnt = rxcnt;
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-}
-
-void fcn2(char *splitCmd[MAX_PARAMS], int countOfParams)
-{
-
-    if(countOfParams != 1){
-        //TODO
-        return;
-    }
-    int num = atoi(splitCmd[1]);
-
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "fcn2, %i\n", num);
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-}
-
 static const Command commands[] = {
-    { fcn1, "fcn1" },
-    { fcn2, "fcn2" },
     { set, "set"},
     { open, "open"},
     { close, "close"},
@@ -112,49 +83,26 @@ void USART_IRQ_Hnadler(void){
 
     USART1->ICR = -1; // Clear all interrupt flags, unsafe, but gets the job done
 }
-int splitCommand(char *str, char *splitCmd[MAX_PARAMS]) {
-    char *separators = " \t,;\n\r";
-
-    // Sets the counters
-    int i = 0;              // Counts chars in str
-    int paramsCount = 0;    // Counts the number of parameters found
-
-    // Skips all separators found at the start of the input string
-    while(isSeparator(str[i], separators) && i<RX_BUFFER_SIZE) i++;
-
-    // Check if there is any command, if not returns -1 to signal an error
-    if (!str[i] || i>=RX_BUFFER_SIZE) return -1;
-
-    // Sets first element of splitCmd to a pointer to the real start of the input string
-    splitCmd[0] = str + i;
-
-    while(str[i] && i<RX_BUFFER_SIZE && paramsCount<MAX_PARAMS) { // Loops until it goes out of bounds or finds a null terminator or finds the maximum number of parameters
-        if(isSeparator(str[i], separators)) {
-            str[i] = '\0'; // Replaces the first separator encountered with null terminator
-
-            // Skips all following separators until it finds the next parameter or goes out of bounds
-            do {
-                i++;
-            } while (isSeparator(str[i], separators) && i<RX_BUFFER_SIZE);
-
-            // Breaks if it finds a null terminator or goes out of bounds
-            if (!str[i] || i>=RX_BUFFER_SIZE) break;
-
-            paramsCount++;
-            splitCmd[paramsCount] = str + i; // Adds the next parameter pointer to params
-        }
-        i++;
-    }
-    return paramsCount;
-}
-
 
 void processCommand(void){
 
     char *splitCmd[MAX_PARAMS] = {0};
+    char msg[RX_BUFFER_SIZE] = {0};
+    char ret[TX_BUFFER_SIZE] = {0};
+    uint16_t msgID;
+    char addr[] = "S1";
+
+    char test[RX_BUFFER_SIZE] = {0};
+    
 
     if(commandReceived){
-        int numOfParams = splitCommand(rx_buff, splitCmd);
+        if(!parseMSG(rx_buff, rxcnt, addr, &msgID, msg)){
+            rxcnt = 0;
+            rxidx = 0;
+            commandReceived = 0;
+            return;
+        }
+        int numOfParams = splitCommand(msg, MAX_PARAMS, splitCmd, RX_BUFFER_SIZE);
         if(numOfParams == -1){
             // TODO: handle no command error
             rxcnt = 0;
@@ -164,13 +112,18 @@ void processCommand(void){
         }
         for(int i = 0; i < command_count; i++){
             if(strcmp(splitCmd[0], commands[i].name) == 0){
-                commands[i].cmd(splitCmd, numOfParams);
+                commands[i].cmd(splitCmd, numOfParams, ret);
+                txcnt = composeMSG(tx_buff, TX_BUFFER_SIZE, msgID, ret);
+                USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
+                txidx = 0;
+                rxcnt = 0;
+                rxidx = 0;
+                commandReceived = 0;
                 return;
             }
         }
 
         
-        help(NULL, 0);
         rxcnt = 0;
         rxidx = 0;
         commandReceived = 0;
@@ -178,25 +131,16 @@ void processCommand(void){
 
 }
 
-void help(char *splitCmd[MAX_PARAMS], int countOfParams){
+void help(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
     const char *help_msg = "Valid commands:\nhelp, set, open, close\n";
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, help_msg);
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
+    snprintf(ret, TX_BUFFER_SIZE, help_msg);
+    return;
 }
 
 
-void set(char *splitCmd[MAX_PARAMS], int countOfParams){
+void set(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
     if(countOfParams != 2){
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 2, got %d)\n", countOfParams);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        snprintf(ret, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 2, got %d)\n", countOfParams);
         return;
     }
     
@@ -204,12 +148,7 @@ void set(char *splitCmd[MAX_PARAMS], int countOfParams){
     uint16_t value = atoi(splitCmd[2]);
 
     if ((value<0) || (value>=0xffff)){
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Parameter 2 out of range, must be [0,65535] (is %d)\n", value);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        snprintf(ret, TX_BUFFER_SIZE, "Parameter 2 out of range, must be [0,65535] (is %d)\n", value);
         return;
     }
 
@@ -230,33 +169,15 @@ void set(char *splitCmd[MAX_PARAMS], int countOfParams){
     }else if(selector == 8){
         TIM2->CCR4 = value;
     } else {
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "E: Invalid parameter 1 (must [1,8], got %d)\n", selector);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        snprintf(ret, TX_BUFFER_SIZE, "E: Invalid parameter 1 (must [1,8], got %d)\n", selector);
         return;
     }
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Set channle %d to %d\n", selector, value);
-
-    
-    
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
+    snprintf(ret, TX_BUFFER_SIZE, "Set channle %d to %d\n", selector, value);
 }
 
-void open(char *splitCmd[MAX_PARAMS], int countOfParams){
+void open(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
     if(countOfParams != 1){
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 1, got %d)\n", countOfParams);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        txcnt = snprintf(ret, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 1, got %d)\n", countOfParams);
         return;
     }
     
@@ -290,32 +211,14 @@ void open(char *splitCmd[MAX_PARAMS], int countOfParams){
         TIM2->CCR4 = 0xffff;
         Ton8 = HAL_GetTick() + t;
     } else {
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "E: Invalid parameter 1 (must [1,8], got %d)\n", selector);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        snprintf(ret, TX_BUFFER_SIZE, "E: Invalid parameter 1 (must [1,8], got %d)\n", selector);
         return;
     }
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Opened valve %d\n", selector);
-
-    
-    
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
+    snprintf(ret, TX_BUFFER_SIZE, "Opened valve %d\n", selector);
 }
-void close(char *splitCmd[MAX_PARAMS], int countOfParams){
+void close(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFFER_SIZE]){
     if(countOfParams != 1){
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 1, got %d)\n", countOfParams);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        snprintf(ret, TX_BUFFER_SIZE, "E: Incorrect number of parameters (required 1, got %d)\n", countOfParams);
         return;
     }
     
@@ -347,21 +250,8 @@ void close(char *splitCmd[MAX_PARAMS], int countOfParams){
         TIM2->CCR4 = 0;
         Ton8 = 0;
     } else {
-        txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "E: Invalid parameter 1 (must [1,8], got %d)\n", selector);
-        USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-        txidx = 0;
-        rxcnt = 0;
-        rxidx = 0;
-        commandReceived = 0;
+        snprintf(ret, TX_BUFFER_SIZE, "E: Invalid parameter 1 (must [1,8], got %d)\n", selector);
         return;
     }
-    txcnt = snprintf(tx_buff, TX_BUFFER_SIZE, "Opened valve %d\n", selector);
-
-    
-    
-    USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
-    txidx = 0;
-    rxcnt = 0;
-    rxidx = 0;
-    commandReceived = 0;
+    snprintf(ret, TX_BUFFER_SIZE, "Opened valve %d\n", selector);
 }
