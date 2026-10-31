@@ -95,7 +95,7 @@ void processCommand(void){
     uint16_t msgID;
     char addr[] = "V1";
 
-    t1 = HAL_GetTick();
+    t1 = HAL_GetTick();  //DEBUG
 
     if(commandReceived){
         if(!parseMSG(rx_buff, rxcnt, addr, &msgID, msg)){
@@ -115,10 +115,10 @@ void processCommand(void){
         for(int i = 0; i < command_count; i++){
             if(strcmp(splitCmd[0], commands[i].name) == 0){
                 commands[i].cmd(splitCmd, numOfParams, ret);
-    t2 = HAL_GetTick();
-                char debug[TX_BUFFER_SIZE] = {0};
-                sprintf(debug, "%s t=%d",ret, t2-t1);
-                txcnt = composeMSG(tx_buff, TX_BUFFER_SIZE, msgID, debug);
+                t2 = HAL_GetTick(); //DEBUG
+                char debug[TX_BUFFER_SIZE] = {0};  //DEBUG
+                sprintf(debug, "%s t=%d",ret, t2-t1);  //DEBUG
+                txcnt = composeMSG(tx_buff, TX_BUFFER_SIZE, msgID, debug);  //DEBUG
                 USART1->CR1 |= USART_CR1_TXEIE_TXFNFIE;  // Enable Tx interrupts
                 txidx = 0;
                 rxcnt = 0;
@@ -275,7 +275,11 @@ void readSensors(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFF
     // ADCmsmnt = ADC1->DR;
     // id2 = ADCmsmnt*(2.5/(1<<16));
     uint16_t readings[4];
-    readPirani(readings);
+    uint8_t chIdx[] = {6,2,7,3};
+    for(int i = 0; i < 4; i++){
+        readings[i] = ADC_VAL[chIdx[i]];
+    }
+
 
     Vsns1 = readings[0]*(2.5/(1<<16))*4;
     Vsns2 = readings[1]*(2.5/(1<<16))*4;
@@ -322,20 +326,25 @@ void readSensors(char *splitCmd[MAX_PARAMS], int countOfParams, char ret[TX_BUFF
 
 // }
 
-int readPirani(uint16_t readings[4]){
-    HAL_StatusTypeDef status = 0;
-    uint16_t ADCmsmnt;
-    uint8_t chIdx[] = {6,2,7,3};    // Vsns1, Vsns2, id1, id2
+// int readPirani(uint16_t readings[4]){
+//     HAL_StatusTypeDef status = 0;
+//     uint16_t ADCmsmnt;
+//     uint8_t chIdx[] = {6,2,7,3};    // Vsns1, Vsns2, id1, id2
 
-    for (int i=0; i<4; i++){
-        HAL_Delay(5);
-        ADC1->CHSELR = chIdx[i] << ADC_CHSELR_SQ1_Pos;
-        status |= HAL_ADC_Start(&hadc1);
-        status |= HAL_ADC_PollForConversion(&hadc1, 10);
-        // ADCmsmnt = HAL_ADC_GetValue(&hadc1);
-        ADCmsmnt = ADC1->DR;
-        readings[i] = ADCmsmnt;
-    }
+//     for (int i=0; i<4; i++){
+//         ADC1->CHSELR = chIdx[i] << ADC_CHSELR_SQ1_Pos;
+//         status |= HAL_ADC_Start(&hadc1);
+//         status |= HAL_ADC_PollForConversion(&hadc1, 10);
+//         // ADCmsmnt = HAL_ADC_GetValue(&hadc1);
+//         ADCmsmnt = ADC1->DR;
+//         readings[i] = ADCmsmnt;
+//     }
 
-    return status;
+//     return status;
+// }
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+  // Callback for ADC DMA circular mode
+  // Nothing needs to be done
 }

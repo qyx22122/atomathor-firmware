@@ -98,6 +98,8 @@ extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern UART_HandleTypeDef huart1;
 
+extern uint16_t ADC_VAL[8];
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

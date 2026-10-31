@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "eeprom.h"
 #include "boardCommands.h"
+#include <stdint.h>
 #include <string.h>
 #include "stm32g0xx_hal_uart.h"
 #include "stm32g0xx_ll_gpio.h"
@@ -79,6 +80,7 @@ static void MX_LPTIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint16_t ADC_VAL[8];
 
 /* USER CODE END 0 */
 
@@ -144,6 +146,10 @@ int main(void)
         (ADC_SAMPLETIME_1CYCLE_5 << ADC_SMPR_SMP1_Pos) |    // SMP1 set sampling time, will be used for all cahnnels
         (ADC_SAMPLETIME_160CYCLES_5 << ADC_SMPR_SMP2_Pos) | // Excpet for those using a longer sampling time, listed in next line
         (1U << ADC_SMPR_SMPSEL12_Pos);                      // Required at least for internal temperature sensor
+    ADC1->CFGR1 |= ADC_CFGR1_CONT
+                | ADC_CFGR1_DMAEN
+                | ADC_CFGR1_DMACFG; // CONT=1 Continuous conversion mode, DMAEN=1 enable DMA, DMACFG=1 circute mode 
+
   
     // Internal temperature sensor calibration parameters
     #define TS_CAL1_TEMP    30.0f      // °C
@@ -168,6 +174,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)ADC_VAL, 8);
   
   while (1)
   {
